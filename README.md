@@ -32,7 +32,7 @@ import Link from 'next/link';
 import { createNextRouterAdapter, createRBACConfig } from '@custom/rbac-template';
 
 const rbacConfig = createRBACConfig({
-  apiBaseUrl: 'https://containerapi1.wipl.co.in',
+  apiBaseUrl: 'https://api.example.com',
   router: createNextRouterAdapter(useRouter(), Link),
 });
 
@@ -81,7 +81,7 @@ Prevent users from losing form progress due to expired access tokens:
 
 ```typescript
 const rbacConfig = createRBACConfig({
-  apiBaseUrl: 'https://containerapi1.wipl.co.in',
+  apiBaseUrl: 'https://api.example.com',
   getToken: () => localStorage.getItem('accessToken'),
   // Catches 401s, refreshes token, and replays failed requests transparently:
   refreshToken: async () => {

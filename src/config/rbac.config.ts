@@ -62,7 +62,7 @@ export interface RBACConfig {
 }
 
 export const defaultRBACConfig: RBACConfig = {
-  apiBaseUrl: 'https://containerapi1.wipl.co.in',
+  apiBaseUrl: 'https://api.example.com',
   features: {
     masters: {
       entity: { enabled: true, allowAdd: true, allowEdit: true, allowDelete: true },

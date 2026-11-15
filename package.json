@@ -1,5 +1,5 @@
 {
-  "name": "@custom/rbac-template",
+  "name": "rbac-kit",
   "version": "1.0.0",
   "description": "Enterprise-grade, highly customizable, frontend-only RBAC and Masters template with pluggable API adapters",
   "main": "./dist/cjs/index.js",
