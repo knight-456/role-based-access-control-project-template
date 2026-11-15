@@ -1,0 +1,51 @@
+/**
+ * Standalone RBAC Stylesheet
+ * For projects that DO NOT use Tailwind CSS or prefer not to configure Tailwind content purging.
+ * Import via: import '@custom/rbac-template/dist/standalone.css';
+ */
+
+:root {
+  --rbac-color-primary: #28518f;
+  --rbac-color-primary-hover: #1f4073;
+  --rbac-color-primary-light: #edf3fc;
+  --rbac-color-primary-text: #ffffff;
+  --rbac-color-bg: #fafafc;
+  --rbac-color-surface: #ffffff;
+  --rbac-color-border: #e5e7eb;
+  --rbac-color-text-primary: #111827;
+  --rbac-color-text-secondary: #6b7280;
+  --rbac-radius-md: 0.5rem;
+  --rbac-radius-lg: 0.75rem;
+  --rbac-font-family: Inter, system-ui, sans-serif;
+}
+
+.rbac-theme-root {
+  font-family: var(--rbac-font-family);
+  color: var(--rbac-color-text-primary);
+}
+
+/* Standalone container utility classes */
+.rbac-table-container {
+  width: 100%;
+  background: var(--rbac-color-surface);
+  border: 1px solid var(--rbac-color-border);
+  border-radius: var(--rbac-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.rbac-btn-primary {
+  background-color: var(--rbac-color-primary);
+  color: var(--rbac-color-primary-text);
+  border-radius: var(--rbac-radius-md);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.rbac-btn-primary:hover {
+  background-color: var(--rbac-color-primary-hover);
+}

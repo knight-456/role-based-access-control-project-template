@@ -1,0 +1,47 @@
+{
+  "name": "@custom/rbac-template",
+  "version": "1.0.0",
+  "description": "Enterprise-grade, highly customizable, frontend-only RBAC and Masters template with pluggable API adapters",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./styles.css": "./src/styles/standalone.css"
+  },
+  "scripts": {
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "npm run build:esm && npm run build:cjs && node scripts/postbuild.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "rbac",
+    "permission",
+    "roles",
+    "masters",
+    "access-control",
+    "react",
+    "frontend-template"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.2.0"
+  }
+}
