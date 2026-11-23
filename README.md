@@ -1,22 +1,72 @@
-# Universal Enterprise RBAC & Masters Template
+# RBAC Manager: React Role-Based Access Control and Permissions
 
-A production-ready, highly modular, frontend-only RBAC (Role-Based Access Control) and Masters framework built for React and Next.js. Engineered to connect directly to any backend REST API with **zero hardcoded keys**, **dynamic permission naming & aliases**, **pluggable API adapters**, **granular action toggles**, **dynamic table schemas**, and **built-in solutions for all enterprise integration roadblocks**.
+`rbac-manager` is a React and TypeScript library for role-based access control (RBAC), permission-based UI, and reusable admin master-data screens. It provides permission and route guards, configurable API adapters, and customizable roles, permissions, and master-data components for applications using a REST API.
+
+> **Security note:** This package controls what the client renders; it does not secure your API. Always enforce authentication and authorization on the server for every protected operation. Client-side permission checks can be bypassed.
+
+## Install
+
+```bash
+npm install rbac-manager
+```
+
+React and React DOM 18 or later are required as peer dependencies.
+
+## Quick start
+
+Wrap your application with `RBACConfigProvider` and `PermissionProvider`, then use `Can` to conditionally render content based on a permission returned by your API:
+
+```tsx
+import {
+  Can,
+  createRBACConfig,
+  PermissionProvider,
+  RBACConfigProvider,
+} from 'rbac-manager';
+
+const config = createRBACConfig({
+  apiBaseUrl: 'https://api.example.com',
+  getToken: () => localStorage.getItem('token'),
+});
+
+export function App() {
+  return (
+    <RBACConfigProvider config={config}>
+      <PermissionProvider>
+        <Can do="projects.create" fallback={<p>You cannot create projects.</p>}>
+          <button type="button">Create project</button>
+        </Can>
+      </PermissionProvider>
+    </RBACConfigProvider>
+  );
+}
+```
+
+By default, `PermissionProvider` fetches the current user and permissions from the configured `AUTH_ME` endpoint. Configure API endpoints and response adapters when your backend uses a different contract. See the examples below for customization options.
+
+## Features
 
 ---
 
 ## 🌟 Core Highlights
 
 - **Frontend-Only**: No database or backend code required. Directly interfaces with backend API endpoints.
-- **Universal Framework Routing**: Native adapters for Next.js App Router (`useRouter`), React Router (`useNavigate`, `Link`), TanStack Router, and Remix—eliminating full-page browser reloads.
+- **Framework routing**: Pluggable router adapters for client-side navigation.
 - **Zero FOUC (Flash of Unauthorized Content)**: Full SSR session hydration support (`initialUser`, `initialPermissions`) prevents permission flashing on server-rendered pages.
 - **Silent Token Refresh & Request Replay**: Transparently catches 401s, calls your refresh token API, and replays failed requests without logging the user out.
 - **Multi-Tenancy & Workspace Switching**: Built-in `activeTenantId` and `setTenantId()` automatically injects `X-Tenant-Id` headers and re-fetches permissions on the fly.
 - **Flexible Pagination Engine**: Seamlessly adapts to 0-based (`page=0`), 1-based (`page=1`), or SQL offset/limit (`offset=0&limit=10`) backend contracts.
 - **Cascading Form Dropdowns**: Dynamic select options that filter automatically based on parent fields (e.g. Department list dynamically filtered by selected Entity).
 - **Zero Hardcoded Permission Strings**: All permission names are isolated in module-level constants (`src/constants/permissions/`).
-- **Supports Any Permission Naming Convention**: Whether your backend sends `roles.add`, `roles.addition`, `roles:create`, or `ROLE_ADD`, it matches automatically via the dynamic permission resolver and alias map.
+- **Flexible permission keys**: Resolve permission naming conventions with a configurable resolver and aliases.
 - **100% Complete Style & ClassName Overrides**: Strip default styles with `unstyled={true}` or inject custom Tailwind/CSS classes into any sub-element.
-- **Dual ESM & CommonJS**: Ships with first-class ES modules (`dist/esm`) and CommonJS (`dist/cjs`) bundles with full TypeScript `.d.ts` declarations.
+- **ESM, CommonJS, and TypeScript**: Includes ESM and CommonJS builds with TypeScript declarations.
+
+## Documentation and support
+
+- [API reference and examples](https://github.com/knight-456/role-based-access-control-project-template#readme)
+- [Report a bug or request a feature](https://github.com/knight-456/role-based-access-control-project-template/issues)
+- [npm package](https://www.npmjs.com/package/rbac-manager)
 
 ---
 
@@ -29,7 +79,7 @@ Avoid full-page reloads by passing your framework's native router:
 // Next.js App Router:
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { createNextRouterAdapter, createRBACConfig } from '@custom/rbac-template';
+import { createNextRouterAdapter, createRBACConfig } from 'rbac-manager';
 
 const rbacConfig = createRBACConfig({
   apiBaseUrl: 'https://api.example.com',
@@ -38,7 +88,7 @@ const rbacConfig = createRBACConfig({
 
 // React Router (Vite / CRA):
 import { useNavigate, Link } from 'react-router-dom';
-import { createReactRouterAdapter } from '@custom/rbac-template';
+import { createReactRouterAdapter } from 'rbac-manager';
 
 const rbacConfig = createRBACConfig({
   router: createReactRouterAdapter(useNavigate(), Link),
@@ -102,7 +152,7 @@ const rbacConfig = createRBACConfig({
 Switch active company/branch workspaces and automatically update permissions:
 
 ```tsx
-import { usePermission } from '@custom/rbac-template';
+import { usePermission } from 'rbac-manager';
 
 export function TenantSwitcher({ entities }) {
   const { activeTenantId, setTenantId } = usePermission();

@@ -1,13 +1,17 @@
 {
   "name": "rbac-manager",
   "version": "1.0.1",
-  "description": "Enterprise-grade, highly customizable, frontend-only RBAC and Masters template with pluggable API adapters",
+  "description": "React role-based access control (RBAC), permission guards, and customizable admin master-data components",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/knight-456/role-based-access-control-project-template"
+  },
+  "homepage": "https://github.com/knight-456/role-based-access-control-project-template#readme",
+  "bugs": {
+    "url": "https://github.com/knight-456/role-based-access-control-project-template/issues"
   },
   "exports": {
     ".": {
@@ -25,14 +29,16 @@
   },
   "keywords": [
     "rbac",
-    "permission",
-    "roles",
-    "masters",
-    "access-control",
     "react",
-    "frontend-template"
+    "react-rbac",
+    "role-based-access-control",
+    "authorization",
+    "permissions",
+    "permission-management",
+    "access-control",
+    "react-permissions",
+    "admin-dashboard"
   ],
-  "author": "",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=18.0.0",

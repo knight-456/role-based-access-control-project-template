@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Add role-based access control (RBAC), permission guards, and customizable admin components to React and TypeScript applications with rbac-manager."
+    >
+    <meta
+      name="keywords"
+      content="React RBAC, role-based access control, React permissions, permission guards, TypeScript, authorization"
+    >
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="rbac-manager | React RBAC and Permissions">
+    <meta
+      property="og:description"
+      content="A React and TypeScript library for role-based access control, permission guards, and reusable admin master-data screens."
+    >
+    <title>rbac-manager | React RBAC and Permissions</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #172033;
+        background: #f7f9fc;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      a {
+        color: #155eef;
+      }
+
+      a:focus-visible {
+        outline: 3px solid #84adff;
+        outline-offset: 3px;
+      }
+
+      .container {
+        width: min(100% - 2rem, 960px);
+        margin-inline: auto;
+      }
+
+      header {
+        padding: 1rem 0;
+        border-bottom: 1px solid #e4e9f1;
+        background: #fff;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      nav a {
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      main {
+        padding-block: 4rem;
+      }
+
+      .hero {
+        max-width: 760px;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.4rem, 7vw, 4.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+
+      h2 {
+        margin-top: 2.5rem;
+        line-height: 1.25;
+      }
+
+      .lead {
+        color: #475467;
+        font-size: 1.2rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-block: 1.5rem 2rem;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.65rem 1rem;
+        border: 1px solid #155eef;
+        border-radius: 0.5rem;
+        background: #155eef;
+        color: #fff;
+        font-weight: 650;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        background: #fff;
+        color: #155eef;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      .features li,
+      .notice {
+        padding: 1rem;
+        border: 1px solid #e4e9f1;
+        border-radius: 0.75rem;
+        background: #fff;
+      }
+
+      pre {
+        overflow-x: auto;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        background: #101828;
+        color: #f2f4f7;
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+
+      .notice {
+        border-left: 4px solid #f79009;
+      }
+
+      footer {
+        padding-block: 1.5rem;
+        border-top: 1px solid #e4e9f1;
+        color: #475467;
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "rbac-manager",
+        "applicationCategory": "DeveloperApplication",
+        "description": "A React and TypeScript library for role-based access control, permission guards, and reusable admin master-data screens.",
+        "operatingSystem": "Any",
+        "programmingLanguage": ["TypeScript", "JavaScript"],
+        "license": "https://opensource.org/licenses/MIT",
+        "codeRepository": "https://github.com/knight-456/role-based-access-control-project-template",
+        "downloadUrl": "https://www.npmjs.com/package/rbac-manager"
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="container" aria-label="Main navigation">
+        <a href="#top">rbac-manager</a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#quick-start">Quick start</a>
+          <a href="https://github.com/knight-456/role-based-access-control-project-template#readme">Full documentation</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top" class="container">
+      <section class="hero" aria-labelledby="page-title">
+        <h1 id="page-title">Role-based access control for React applications</h1>
+        <p class="lead">
+          <code>rbac-manager</code> is a React and TypeScript library for rendering permission-aware
+          interfaces, guarding routes, and building reusable admin master-data screens.
+        </p>
+        <div class="actions">
+          <a class="button" href="https://www.npmjs.com/package/rbac-manager">Install from npm</a>
+          <a class="button secondary" href="https://github.com/knight-456/role-based-access-control-project-template">View on GitHub</a>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title">
+        <h2 id="features-title">React permissions and admin UI features</h2>
+        <ul class="features">
+          <li><strong>Permission guards</strong><br>Conditionally render UI with permission and route checks.</li>
+          <li><strong>Backend adapters</strong><br>Configure API response transformations and endpoint contracts.</li>
+          <li><strong>Roles and permissions</strong><br>Use role and permission management components in your application.</li>
+          <li><strong>Admin master-data views</strong><br>Build configurable entity, department, designation, and employee screens.</li>
+          <li><strong>React and TypeScript</strong><br>Use typed APIs with ESM and CommonJS package builds.</li>
+          <li><strong>Flexible permission keys</strong><br>Adapt permission naming with aliases and a configurable resolver.</li>
+        </ul>
+      </section>
+
+      <section id="quick-start" aria-labelledby="quick-start-title">
+        <h2 id="quick-start-title">Quick start</h2>
+        <p>Install the package and React peer dependencies:</p>
+        <pre><code>npm install rbac-manager</code></pre>
+        <p>Wrap your application with the providers and render content only when the required permission is present:</p>
+        <pre><code>import {
+  Can,
+  createRBACConfig,
+  PermissionProvider,
+  RBACConfigProvider,
+} from 'rbac-manager';
+
+const config = createRBACConfig({
+  apiBaseUrl: 'https://api.example.com',
+  getToken: () =&gt; localStorage.getItem('token'),
+});
+
+export function App() {
+  return (
+    &lt;RBACConfigProvider config={config}&gt;
+      &lt;PermissionProvider&gt;
+        &lt;Can do="projects.create"&gt;
+          &lt;button type="button"&gt;Create project&lt;/button&gt;
+        &lt;/Can&gt;
+      &lt;/PermissionProvider&gt;
+    &lt;/RBACConfigProvider&gt;
+  );
+}</code></pre>
+      </section>
+
+      <section aria-labelledby="security-title">
+        <h2 id="security-title">Keep authorization on the server</h2>
+        <p class="notice">
+          Client-side permission checks control what the interface displays; they do not secure your
+          API. Always enforce authentication and authorization on the server for every protected
+          operation. Client-side checks can be bypassed.
+        </p>
+      </section>
+
+      <section aria-labelledby="links-title">
+        <h2 id="links-title">Documentation and support</h2>
+        <ul>
+          <li><a href="https://github.com/knight-456/role-based-access-control-project-template#readme">Read the full README and examples</a></li>
+          <li><a href="https://www.npmjs.com/package/rbac-manager">View rbac-manager on npm</a></li>
+          <li><a href="https://github.com/knight-456/role-based-access-control-project-template/issues">Ask a question or report an issue</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>MIT-licensed open-source software. See the <a href="https://github.com/knight-456/role-based-access-control-project-template#license">license details</a>.</p>
+      </div>
+    </footer>
+  </body>
+</html>
